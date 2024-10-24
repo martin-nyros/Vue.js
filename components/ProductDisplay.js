@@ -25,16 +25,36 @@ app.component("product-display", {
           class="color-circle" 
           :style="{ backgroundColor: variant.color }">
         </div>
+       <div class="button-box">
+       <div>
+       <button 
+       class="button1"
+       :class="{ disabledButton: !inStock }" 
+       :disabled="!inStock" 
+       v-on:click="removeFromCart">
+       -
+     </button>
+     <button 
+       class="button1"
+       :class="{ disabledButton: !inStock }" 
+       :disabled="!inStock" 
+       v-on:click="addToCart">
+       +
+     </button>
+       </div>
         <button 
-          class="button"
-          :class="{ disabledButton: !inStock }" 
-          :disabled="!inStock" 
-          v-on:click="addToCart">
-          Add to Cart 
+          class="button">
+          Buy Now
         </button>
+       </div>
       </div>
     </div>
-  </div>`,
+  </div>
+  <div class="list-box">
+  <review-form @review-submitted="addReview"></review-form>
+  <review-list  v-if="reviews.length" :reviews="reviews"></review-list>
+  </div>
+  `,
   data() {
     return {
       product: "Apple",
@@ -54,7 +74,7 @@ app.component("product-display", {
           id: 2,
           color: "#23607F",
           image: "./assets/images/blueiphone.png",
-          quantity: 3,
+          quantity: 5,
         },
         {
           id: 3,
@@ -81,7 +101,14 @@ app.component("product-display", {
         alert("Can't add more to the cart");
       }
     },
-
+    removeFromCart() {
+      if (this.cartQuantity > 0) {
+        this.cartQuantity--;
+        this.$emit("remove-from-cart", this.variants[this.selectedVariant].id);
+      } else {
+        alert("Nothing to Remove");
+      }
+    },
     updateVariant(index) {
       this.selectedVariant = index;
       this.cartQuantity = 0;
@@ -89,6 +116,10 @@ app.component("product-display", {
     addReview(review) {
       this.reviews.push(review);
     },
+
+    // Cart() {
+    //   window.location = "cart.html";
+    // },
   },
   computed: {
     title() {

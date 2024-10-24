@@ -20,15 +20,17 @@ body {
   cursor: pointer;
   transition: background-color 0.3s, transform 0.1s;
 }
+
 .button1 {
   margin: 30px;
   background-color: #333333;
   border-radius: 30px;
   font-size: 20px;
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   color: white;
   border: none;
+  transform: translate(-50%, -50%);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
@@ -86,8 +88,7 @@ input {
   height: 40px;
   margin-bottom: 20px;
   border: 1px solid #d0c9b9;
-  border-radius: 5px;
-  padding: 10px;
+  border-radius: 10px;
   font-size: 16px;
   background-color: #ffffff;
 }
@@ -126,4 +127,83 @@ p {
 .product-image,
 .product-info {
   width: 50%;
+}
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+  width: 425px;
+  padding: 20px;
+  margin: 40px;
+  background-color: white;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+  box-shadow: 2px 15px -12px rgba(0, 0, 0, 0.57);
+}
+
+.review-container {
+  padding: 20px;
+  background-color: white;
+  -webkit-box-shadow: 0px 2px 20px -12px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 2px 20px -12px rgba(0, 0, 0, 0.57);
+  box-shadow: 2px 20px -12px rgba(0, 0, 0, 0.57);
+  margin-left: 40px;
+  margin-right: 10px;
+  border-radius: 10px;
+  height: auto;
+}
+
+.review-container li {
+  margin-bottom: 30px;
+}
+
+.review-form .button {
+  display: block;
+  margin: 30px auto;
+  border-radius: 10px;
+}
+select {
+  height: 40px;
+  font-size: 20px;
+  background-color: white;
+  cursor: pointer;
+}
+
+textarea {
+  width: 95%;
+  height: 70px;
+  padding: 10px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 15px -12px rgba(0, 0, 0, 0.57);
+  border: 1px solid #d0c9b9;
+}
+select {
+  border: 1px solid #d0c9b9;
+  border-radius: 10px;
+}
+
+ul {
+  list-style-type: none;
+}
+.list-box {
+  display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .product-image,
+  .product-info {
+    margin-left: 10px;
+    width: 100%;
+  }
+
+  .review-form {
+    width: 90%;
+  }
 }
