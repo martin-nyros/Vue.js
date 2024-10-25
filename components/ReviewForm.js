@@ -63,7 +63,6 @@ app.component("review-form", {
     },
   },
   mounted() {
-    // Load reviews from local storage on component mount
     const storedReviews = JSON.parse(localStorage.getItem("reviews")) || [];
     this.reviews = storedReviews;
     // reset the reslts from the field
